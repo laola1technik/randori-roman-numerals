@@ -8,8 +8,9 @@ class RomanNumerals
 
     public function convert($arabicNumber)
     {
-        if($arabicNumber === 2) {
-            return $this->convertSingleLiteral(1) . $this->convertSingleLiteral(1);
+
+        if($arabicNumber === 2 || $arabicNumber === 3) {
+            return str_repeat($this->convertSingleLiteral(1), $arabicNumber);
         }
         return $this->convertSingleLiteral($arabicNumber);
     }
