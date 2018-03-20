@@ -9,9 +9,9 @@ class RomanNumerals
     public function convert($arabicNumber)
     {
         if ($arabicNumber <= 3) {
-            return str_repeat($this->convertSingleLiteral(1), $arabicNumber);
+            return $this->repeatSingleLiteral(1, $arabicNumber);
         } elseif ($arabicNumber >= 10 && $arabicNumber <= 30) {
-            return str_repeat($this->convertSingleLiteral(10), $arabicNumber/10);
+            return $this->repeatSingleLiteral(10, $arabicNumber);
         }
         return $this->convertSingleLiteral($arabicNumber);
     }
@@ -36,6 +36,16 @@ class RomanNumerals
             default:
                 throw new \InvalidArgumentException($arabicNumber);
         }
+    }
+
+    /**
+     * @param $literal
+     * @param $arabicNumber
+     * @return string
+     */
+    private function repeatSingleLiteral($literal, $arabicNumber)
+    {
+        return str_repeat($this->convertSingleLiteral($literal), $arabicNumber/$literal);
     }
 
 }
