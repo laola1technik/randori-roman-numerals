@@ -30,6 +30,7 @@ class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
             array(2, 'II'),
             array(3, 'III'),
             array(20, 'XX'),
+            array(30, 'XXX'),
         );
     }
 }

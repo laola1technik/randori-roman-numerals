@@ -10,7 +10,7 @@ class RomanNumerals
     {
         if ($arabicNumber <= 3) {
             return str_repeat($this->convertSingleLiteral(1), $arabicNumber);
-        } elseif ($arabicNumber >= 10 && $arabicNumber <= 20) {
+        } elseif ($arabicNumber >= 10 && $arabicNumber <= 30) {
             return str_repeat($this->convertSingleLiteral(10), $arabicNumber/10);
         }
         return $this->convertSingleLiteral($arabicNumber);
