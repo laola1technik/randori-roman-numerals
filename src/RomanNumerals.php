@@ -12,6 +12,8 @@ class RomanNumerals
             return $this->repeatSingleLiteral(1, $arabicNumber);
         } elseif ($arabicNumber >= 10 && $arabicNumber <= 30) {
             return $this->repeatSingleLiteral(10, $arabicNumber);
+        } elseif ($arabicNumber >= 100 && $arabicNumber <= 300) {
+            return $this->repeatSingleLiteral(100, $arabicNumber);
         }
         return $this->convertSingleLiteral($arabicNumber);
     }

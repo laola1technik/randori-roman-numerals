@@ -31,6 +31,8 @@ class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
             array(3, 'III'),
             array(20, 'XX'),
             array(30, 'XXX'),
+            array(200, 'CC'),
+            array(300, 'CCC'),
         );
     }
 }
