@@ -3,26 +3,28 @@
 namespace test;
 
 use App\RomanNumerals;
+use phpDocumentor\Reflection\Types\Integer;
 
 class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @test
+     * @dataProvider provide_arabic_to_roman_mapping
+     * @param Integer $arabicNumber
+     * @param String $romanNumber
      */
-    public function should_return_I_for_1()
+    public function should_return_roman_for_arabic_number($arabicNumber, $romanNumber)
     {
         $romanNumerals = new RomanNumerals();
 
-        $this->assertEquals('I', $romanNumerals->convert(1));
+        $this->assertEquals($romanNumber, $romanNumerals->convert($arabicNumber));
     }
 
-    /**
-     * @test
-     */
-    public function should_return_V_for_5()
+    public function provide_arabic_to_roman_mapping()
     {
-        $romanNumerals = new RomanNumerals();
-
-        $this->assertEquals('V', $romanNumerals->convert(5));
+        return array(
+            array(1, 'I'),
+            array(5, 'V'),
+        );
     }
 }
