@@ -8,17 +8,12 @@ class RomanNumerals
 
     public function convert($arabicNumber)
     {
-
-        if($arabicNumber === 2 || $arabicNumber === 3) {
+        if($arabicNumber <= 3) {
             return str_repeat($this->convertSingleLiteral(1), $arabicNumber);
         }
         return $this->convertSingleLiteral($arabicNumber);
     }
 
-    /**
-     * @param $arabicNumber
-     * @return string
-     */
     private function convertSingleLiteral($arabicNumber)
     {
         switch ($arabicNumber) {
