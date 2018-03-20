@@ -2,7 +2,6 @@
 
 namespace test;
 
-
 use App\RomanNumerals;
 
 class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
