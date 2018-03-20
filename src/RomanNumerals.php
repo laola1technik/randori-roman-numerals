@@ -8,10 +8,12 @@ class RomanNumerals
 
     public function convert($arabicNumber)
     {
-        if ($arabicNumber === 5) {
-            return 'V';
+
+        switch ($arabicNumber) {
+            case 1: return "I";
+            case 5: return "V";
+            case 10: return "X";
         }
-        return "I";
     }
 
 }
