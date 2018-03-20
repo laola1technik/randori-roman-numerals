@@ -3,7 +3,7 @@
 This is the [Roman Numerals Kata](http://codingdojo.org/kata/RomanNumerals/)
 in PHP with [PHPUnit](https://phpunit.de/),
 done in a Randori-styled [Coding Dojo](http://codingdojo.org/WhatIsCodingDojo/), 
-13 sessions a 2 hours.
+tbd sessions a 2 hours.
 
 ## Installation
 * This package requires [Composer](https://getcomposer.org/)
