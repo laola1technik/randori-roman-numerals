@@ -1,6 +1,6 @@
-# MarsRover - PHP
+# RomanNumerals - PHP
 
-This is the [Mars Rover Kata](http://kata-log.rocks/mars-rover-kata)
+This is the [Roman Numerals Kata](http://codingdojo.org/kata/RomanNumerals/)
 in PHP with [PHPUnit](https://phpunit.de/),
 done in a Randori-styled [Coding Dojo](http://codingdojo.org/WhatIsCodingDojo/), 
 13 sessions a 2 hours.
