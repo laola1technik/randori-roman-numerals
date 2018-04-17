@@ -37,6 +37,8 @@ class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
             array(300, 'CCC'),
             array(2000, 'MM'),
             array(3000, 'MMM'),
+            // Sequenzen von beliebigen Literalen
+            array(6, 'VI'),
         );
     }
 } // TODO: Test 0
