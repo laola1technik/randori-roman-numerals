@@ -15,6 +15,8 @@ class RomanNumerals
         }
         if($arabicNumber === 6) {
             return $this->convertSingleLiteral(5).$this->convertSingleLiteral(1);
+        } else if($arabicNumber === 7) {
+            return $this->convertSingleLiteral(5).$this->convert(2);
         }
         return $this->convertSingleLiteral($arabicNumber);
     }
