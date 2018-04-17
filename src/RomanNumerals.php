@@ -13,13 +13,11 @@ class RomanNumerals
                 return $this->repeatSingleLiteral($literal, $arabicNumber);
             }
         }
-        if ($arabicNumber === 6) {
-            return $this->convertSingleLiteral(5) . $this->convertSingleLiteral(1);
-        } elseif ($arabicNumber === 7) {
-            return $this->convertSingleLiteral(5) . $this->convert(2);
-        } elseif ($arabicNumber === 8) {
-            return $this->convertSingleLiteral(5) . $this->convert(3);
+
+        if ($arabicNumber === 6 || $arabicNumber === 7 || $arabicNumber === 8) {
+            return $this->convertSingleLiteral(5) . $this->convert($arabicNumber % 5);
         }
+
         return $this->convertSingleLiteral($arabicNumber);
     }
 
