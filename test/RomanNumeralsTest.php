@@ -41,6 +41,7 @@ class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
             array(6, 'VI'),
             array(7, 'VII'),
             array(8, 'VIII'),
+            array(11, 'XI'),
         );
     }
 } // TODO: Test 0
