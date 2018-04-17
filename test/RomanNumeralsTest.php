@@ -42,6 +42,8 @@ class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
             array(7, 'VII'),
             array(8, 'VIII'),
             array(11, 'XI'),
+            // alle additiven Sequenzen
+            array(3888, 'MMMDCCCLXXXVIII')
         );
     }
 } // TODO: Test 0
