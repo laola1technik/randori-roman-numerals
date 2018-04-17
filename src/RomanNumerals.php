@@ -8,7 +8,7 @@ class RomanNumerals
 
     public function convert($arabicNumber)
     {
-        foreach ([1,10,100] as $literal) {
+        foreach ([1,10,100,1000] as $literal) {
             if ($arabicNumber >= $literal && $arabicNumber <= $literal * 3) {
                 return $this->repeatSingleLiteral($literal, $arabicNumber);
             }

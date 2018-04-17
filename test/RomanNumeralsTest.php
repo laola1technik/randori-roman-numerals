@@ -20,6 +20,7 @@ class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
     public function provide_arabic_to_roman_mapping()
     {
         return array(
+            // Literale
             array(1, 'I'),
             array(5, 'V'),
             array(10, 'X'),
@@ -27,12 +28,15 @@ class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
             array(100, 'C'),
             array(500, 'D'),
             array(1000, 'M'),
+            // Sequenzen von Literalen
             array(2, 'II'),
             array(3, 'III'),
             array(20, 'XX'),
             array(30, 'XXX'),
             array(200, 'CC'),
             array(300, 'CCC'),
+            array(2000, 'MM'),
+            array(3000, 'MMM'),
         );
     }
-}
+} // TODO: Test 0
