@@ -9,14 +9,11 @@ class RomanNumerals
     public function convert($arabicNumber)
     {
 
-        foreach ([1000, 100, 10, 5, 1] as $literal) {
+        foreach ([1000, 500, 100, 50, 10, 5, 1] as $literal) {
             if ($arabicNumber === $literal) {
                 return $this->convertSingleLiteral($literal);
             }
-            if ($arabicNumber > $literal && $arabicNumber <= $literal + 3) {
-                return $this->convertSingleLiteral($literal) . $this->convert($arabicNumber - $literal);
-            }
-            if ($arabicNumber > $literal && $arabicNumber <= $literal * 3) {
+            if ($arabicNumber > $literal) {
                 return $this->convertSingleLiteral($literal) . $this->convert($arabicNumber - $literal);
             }
         }
