@@ -8,7 +8,6 @@ class RomanNumerals
 
     public function convert($arabicNumber)
     {
-
         foreach ([1000, 500, 100, 50, 10, 5, 1] as $literal) {
             if ($arabicNumber === $literal) {
                 return $this->convertSingleLiteral($literal);
@@ -17,8 +16,7 @@ class RomanNumerals
                 return $this->convertSingleLiteral($literal) . $this->convert($arabicNumber - $literal);
             }
         }
-
-        return $this->convertSingleLiteral($arabicNumber);
+        throw new \InvalidArgumentException($arabicNumber);
     }
 
     private function convertSingleLiteral($arabicNumber)
