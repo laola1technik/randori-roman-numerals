@@ -15,8 +15,8 @@ class RomanNumerals
         }
 
         foreach ([1, 10, 100, 1000] as $literal) {
-            if ($arabicNumber >= $literal && $arabicNumber <= $literal * 3) {
-                return $this->repeatSingleLiteral($literal, $arabicNumber);
+            if ($arabicNumber > $literal && $arabicNumber <= $literal * 3) {
+                return $this->convertSingleLiteral($literal) . $this->convert($arabicNumber - $literal);
             }
         }
 
@@ -43,16 +43,6 @@ class RomanNumerals
             default:
                 throw new \InvalidArgumentException($arabicNumber);
         }
-    }
-
-    /**
-     * @param $literal
-     * @param $arabicNumber
-     * @return string
-     */
-    private function repeatSingleLiteral($literal, $arabicNumber)
-    {
-        return str_repeat($this->convertSingleLiteral($literal), $arabicNumber / $literal);
     }
 
 }
