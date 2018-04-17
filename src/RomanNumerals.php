@@ -8,15 +8,17 @@ class RomanNumerals
 
     public function convert($arabicNumber)
     {
-        foreach ([1,10,100,1000] as $literal) {
+        foreach ([1, 10, 100, 1000] as $literal) {
             if ($arabicNumber >= $literal && $arabicNumber <= $literal * 3) {
                 return $this->repeatSingleLiteral($literal, $arabicNumber);
             }
         }
-        if($arabicNumber === 6) {
-            return $this->convertSingleLiteral(5).$this->convertSingleLiteral(1);
-        } else if($arabicNumber === 7) {
-            return $this->convertSingleLiteral(5).$this->convert(2);
+        if ($arabicNumber === 6) {
+            return $this->convertSingleLiteral(5) . $this->convertSingleLiteral(1);
+        } elseif ($arabicNumber === 7) {
+            return $this->convertSingleLiteral(5) . $this->convert(2);
+        } elseif ($arabicNumber === 8) {
+            return $this->convertSingleLiteral(5) . $this->convert(3);
         }
         return $this->convertSingleLiteral($arabicNumber);
     }
@@ -50,7 +52,7 @@ class RomanNumerals
      */
     private function repeatSingleLiteral($literal, $arabicNumber)
     {
-        return str_repeat($this->convertSingleLiteral($literal), $arabicNumber/$literal);
+        return str_repeat($this->convertSingleLiteral($literal), $arabicNumber / $literal);
     }
 
 }

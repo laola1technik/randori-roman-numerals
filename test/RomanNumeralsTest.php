@@ -40,6 +40,7 @@ class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
             // Sequenzen von beliebigen Literalen
             array(6, 'VI'),
             array(7, 'VII'),
+            array(8, 'VIII'),
         );
     }
 } // TODO: Test 0
