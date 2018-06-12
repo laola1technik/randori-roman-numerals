@@ -25,16 +25,10 @@ class RomanNumerals
             return '';
         }
 
-        if ($numberToConvert === 4 || $numberToConvert === 9) {
-            return $this->getLiteralFor(1) . $this->getLiteralFor($numberToConvert+1);
-        }
-
-        if ($numberToConvert === 40 || $numberToConvert === 90) {
-            return $this->getLiteralFor(10) . $this->getLiteralFor($numberToConvert+10);
-        }
-
-        if ($numberToConvert === 400 || $numberToConvert === 900) {
-            return $this->getLiteralFor(100) . $this->getLiteralFor($numberToConvert+100);
+        foreach([1, 10, 100] as $power) {
+            if($numberToConvert === 4*$power || $numberToConvert === 9*$power) {
+                return $this->getLiteralFor($power) . $this->getLiteralFor($numberToConvert+$power);
+            }
         }
 
         $equivalentNumbers = array_reverse(array_keys($this->numberToLiteral));
