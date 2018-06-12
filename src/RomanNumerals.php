@@ -8,12 +8,14 @@ class RomanNumerals
 
     public function convert($arabicNumber)
     {
+        if ($arabicNumber === 0) {
+            return '';
+        }
+
         foreach ([1000, 500, 100, 50, 10, 5, 1] as $literal) {
-            if ($arabicNumber === $literal) {
-                return $this->convertSingleLiteral($literal);
-            }
-            if ($arabicNumber > $literal) {
-                return $this->convertSingleLiteral($literal) . $this->convert($arabicNumber - $literal);
+            if ($arabicNumber >= $literal) {
+                return $this->convertSingleLiteral($literal) .
+                       $this->convert($arabicNumber - $literal);
             }
         }
         throw new \InvalidArgumentException($arabicNumber);
@@ -39,6 +41,6 @@ class RomanNumerals
             default:
                 throw new \InvalidArgumentException($arabicNumber);
         }
-    }
+     }
 
 }
