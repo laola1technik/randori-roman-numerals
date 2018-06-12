@@ -2,10 +2,14 @@
 
 namespace App;
 
-
+/**
+ * Domain Vokabular:
+ * (Roman) numerals consist of literals
+ * (Arabic) Numbers are numbers
+ */
 class RomanNumerals
 {
-    private $singleLiterals = [
+    private $numberToLiteral = [
         1 => "I",
         5 => "V",
         10 => "X",
@@ -15,27 +19,28 @@ class RomanNumerals
         1000 => "M"
     ];
 
-    public function convert($arabicNumber)
+    public function convert($numberToConvert)
     {
-        if ($arabicNumber === 0) {
+        if ($numberToConvert === 0) {
             return '';
         }
 
-        foreach ([1000, 500, 100, 50, 10, 5, 1] as $literal) {
-            if ($arabicNumber >= $literal) {
-                return $this->convertSingleLiteral($literal) .
-                       $this->convert($arabicNumber - $literal);
+        $equivalentNumbers = array_reverse(array_keys($this->numberToLiteral));
+        foreach ($equivalentNumbers as $equivalentNumber) {
+            if ($numberToConvert >= $equivalentNumber) {
+                $remainingNumber = $numberToConvert - $equivalentNumber;
+                return $this->getLiteralFor($equivalentNumber) . $this->convert($remainingNumber);
             }
         }
-        throw new \InvalidArgumentException($arabicNumber);
+        throw new \InvalidArgumentException($numberToConvert);
     }
 
-    private function convertSingleLiteral($arabicNumber)
+    private function getLiteralFor($number)
     {
-        if(array_key_exists($arabicNumber, $this->singleLiterals)) {
-            return $this->singleLiterals[$arabicNumber];
+        if(array_key_exists($number, $this->numberToLiteral)) {
+            return $this->numberToLiteral[$number];
         }
-        throw new \InvalidArgumentException($arabicNumber);
+        throw new \InvalidArgumentException($number);
      }
 
 }
