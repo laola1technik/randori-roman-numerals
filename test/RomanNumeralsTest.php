@@ -47,6 +47,8 @@ class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
             // subtraktive Sequenzen
             array(4, 'IV'),
             array(9, 'IX'),
+            array(14, 'XIV'),
+            array(40, 'XL'),
         );
     }
 } // TODO: Test 0

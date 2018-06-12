@@ -29,6 +29,11 @@ class RomanNumerals
             return $this->getLiteralFor(1) . $this->getLiteralFor($numberToConvert+1);
         }
 
+        if ($numberToConvert === 40 || $numberToConvert === 90) {
+            return $this->getLiteralFor(10) . $this->getLiteralFor($numberToConvert+10);
+        }
+
+
         $equivalentNumbers = array_reverse(array_keys($this->numberToLiteral));
         foreach ($equivalentNumbers as $equivalentNumber) {
             if ($numberToConvert >= $equivalentNumber) {
