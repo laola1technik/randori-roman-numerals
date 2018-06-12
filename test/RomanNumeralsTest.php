@@ -53,8 +53,9 @@ class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
             array(400, 'CD'),
             array(900, 'CM'),
             array(91, 'XCI'),
-            //array(999, 'CMXCIX'),
-            //array(444, 'CDXLIV')
+            array(41, 'XLI'),
+            array(999, 'CMXCIX'),
+            array(444, 'CDXLIV')
 
         );
     }
