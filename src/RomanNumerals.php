@@ -25,6 +25,10 @@ class RomanNumerals
             return '';
         }
 
+        if ($numberToConvert === 4) {
+            return $this->getLiteralFor(1) . $this->getLiteralFor($numberToConvert+1);
+        }
+
         $equivalentNumbers = array_reverse(array_keys($this->numberToLiteral));
         foreach ($equivalentNumbers as $equivalentNumber) {
             if ($numberToConvert >= $equivalentNumber) {
