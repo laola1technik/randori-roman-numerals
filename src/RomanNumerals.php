@@ -33,6 +33,9 @@ class RomanNumerals
             return $this->getLiteralFor(10) . $this->getLiteralFor($numberToConvert+10);
         }
 
+        if ($numberToConvert === 400 || $numberToConvert === 900) {
+            return $this->getLiteralFor(100) . $this->getLiteralFor($numberToConvert+100);
+        }
 
         $equivalentNumbers = array_reverse(array_keys($this->numberToLiteral));
         foreach ($equivalentNumbers as $equivalentNumber) {
