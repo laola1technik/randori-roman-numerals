@@ -5,6 +5,15 @@ namespace App;
 
 class RomanNumerals
 {
+    private $singleLiterals = [
+        1 => "I",
+        5 => "V",
+        10 => "X",
+        50 => "L",
+        100 => "C",
+        500 => "D",
+        1000 => "M"
+    ];
 
     public function convert($arabicNumber)
     {
@@ -23,24 +32,10 @@ class RomanNumerals
 
     private function convertSingleLiteral($arabicNumber)
     {
-        switch ($arabicNumber) {
-            case 1:
-                return "I";
-            case 5:
-                return "V";
-            case 10:
-                return "X";
-            case 50:
-                return "L";
-            case 100:
-                return "C";
-            case 500:
-                return "D";
-            case 1000:
-                return "M";
-            default:
-                throw new \InvalidArgumentException($arabicNumber);
+        if(array_key_exists($arabicNumber, $this->singleLiterals)) {
+            return $this->singleLiterals[$arabicNumber];
         }
+        throw new \InvalidArgumentException($arabicNumber);
      }
 
 }
