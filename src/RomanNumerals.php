@@ -9,15 +9,24 @@ namespace App;
  */
 class RomanNumerals
 {
-    private $numberToLiteral = [
-        1 => "I",
-        5 => "V",
-        10 => "X",
-        50 => "L",
-        100 => "C",
-        500 => "D",
-        1000 => "M"
-    ];
+    private $numberToLiteral;
+    private $equivalentNumbers;
+    private $powersAllowingSubstractiveForm;
+
+    public function __construct()
+    {
+        $this->numberToLiteral = [
+            1 => "I",
+            5 => "V",
+            10 => "X",
+            50 => "L",
+            100 => "C",
+            500 => "D",
+            1000 => "M"
+        ];
+        $this->equivalentNumbers = array_reverse(array_keys($this->numberToLiteral));
+        $this->powersAllowingSubstractiveForm = [1, 10, 100];
+    }
 
     public function convert($numberToConvert)
     {
@@ -25,14 +34,13 @@ class RomanNumerals
             return '';
         }
 
-        foreach([1, 10, 100] as $power) {
-            if($numberToConvert === 4*$power || $numberToConvert === 9*$power) {
-                return $this->getLiteralFor($power) . $this->getLiteralFor($numberToConvert+$power);
+        foreach ($this->powersAllowingSubstractiveForm as $power) {
+            if ($numberToConvert === 4 * $power || $numberToConvert === 9 * $power) {
+                return $this->getLiteralFor($power) . $this->getLiteralFor($numberToConvert + $power);
             }
         }
 
-        $equivalentNumbers = array_reverse(array_keys($this->numberToLiteral));
-        foreach ($equivalentNumbers as $equivalentNumber) {
+        foreach ($this->equivalentNumbers as $equivalentNumber) {
             if ($numberToConvert >= $equivalentNumber) {
                 $remainingNumber = $numberToConvert - $equivalentNumber;
                 return $this->getLiteralFor($equivalentNumber) . $this->convert($remainingNumber);
@@ -43,10 +51,10 @@ class RomanNumerals
 
     private function getLiteralFor($number)
     {
-        if(array_key_exists($number, $this->numberToLiteral)) {
+        if (array_key_exists($number, $this->numberToLiteral)) {
             return $this->numberToLiteral[$number];
         }
         throw new \InvalidArgumentException($number);
-     }
+    }
 
 }
