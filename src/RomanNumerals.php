@@ -25,7 +25,7 @@ class RomanNumerals
             return '';
         }
 
-        if ($numberToConvert === 4) {
+        if ($numberToConvert === 4 || $numberToConvert === 9) {
             return $this->getLiteralFor(1) . $this->getLiteralFor($numberToConvert+1);
         }
 
