@@ -47,6 +47,7 @@ class RomanNumerals
                     $this->getLiteralFor(9*$power + $power) .
                     $this->convert($remainingNumber);
             }
+            // Todo: Refactor dupclicated code
         }
 
         foreach ($this->equivalentNumbers as $equivalentNumber) {
