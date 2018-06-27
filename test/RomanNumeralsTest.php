@@ -85,6 +85,7 @@ class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
             array('M', 1000),
             // Sequenzen von Literalen
             array('II', 2),
+            array('MMMDCCCLXXXVIII', 3888),
         );
     }
 

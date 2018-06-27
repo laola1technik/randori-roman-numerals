@@ -68,11 +68,11 @@ class RomanNumerals
 
     public function convertFromRoman($romanNumber)
     {
-        $returnValue = 0;
+        $arabicNumber = 0;
         foreach (str_split($romanNumber) as $literal) {
-            $returnValue += array_search($literal, $this->numberToLiteral);
+            $arabicNumber += array_search($literal, $this->numberToLiteral);
         }
-        return $returnValue;
+        return $arabicNumber;
     }
 
 }
