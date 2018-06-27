@@ -72,6 +72,12 @@ class RomanNumerals
         foreach (str_split($romanNumber) as $literal) {
             $arabicNumber[] = array_search($literal, $this->numberToLiteral);
         }
+        if(array_key_exists(1, $arabicNumber)){
+            if($arabicNumber[0] < $arabicNumber[1]) {
+                $arabicNumber[0] *= -1;
+            }
+
+        }
 
         return array_sum($arabicNumber);
 
