@@ -11,6 +11,7 @@ class RomanNumerals
 {
     private $numberToLiteral;
     private $equivalentNumbers;
+    private $boundariesSubstractiveForms;
     private $powersAllowingSubstractiveForm;
 
     public function __construct()
@@ -25,6 +26,7 @@ class RomanNumerals
             1000 => "M"
         ];
         $this->equivalentNumbers = array_reverse(array_keys($this->numberToLiteral));
+        $this->boundariesSubstractiveForms = [4, 9];
         $this->powersAllowingSubstractiveForm = [1, 10, 100];
     }
 
@@ -34,10 +36,10 @@ class RomanNumerals
             return '';
         }
 
-        foreach ($this->powersAllowingSubstractiveForm as $power) {
-            foreach ([4,9] as $foo) {
-                $lowerBoundary = $foo * $power;
-                $upperBoundary = ($foo + 1) * $power;
+        foreach ($this->boundariesSubstractiveForms as $boundary) {
+            foreach ($this->powersAllowingSubstractiveForm as $power) {
+                $lowerBoundary = $boundary * $power;
+                $upperBoundary = $lowerBoundary + $power;
                 if ($numberToConvert >= $lowerBoundary && $numberToConvert < $upperBoundary) {
                     $remainingNumber = $numberToConvert - $lowerBoundary;
                     return $this->getLiteralFor($power) .
@@ -45,14 +47,6 @@ class RomanNumerals
                         $this->convert($remainingNumber);
                 }
             }
-
-/*            if ($numberToConvert >= 9 * $power && $numberToConvert < 10 * $power) {
-                $remainingNumber = $numberToConvert - 9 * $power;
-                return $this->getLiteralFor($power) .
-                    $this->getLiteralFor(9 * $power + $power) .
-                    $this->convert($remainingNumber);
-            }*/
-            // Todo: Refactor dupclicated code
         }
 
         foreach ($this->equivalentNumbers as $equivalentNumber) {
