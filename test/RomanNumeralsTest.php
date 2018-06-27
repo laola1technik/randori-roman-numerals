@@ -87,7 +87,13 @@ class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
             array('II', 2),
             array('MMMDCCCLXXXVIII', 3888),
             // Subtraktive Formen
-            array('IV', 4)
+            array('IV', 4),
+            array('IX', 9),
+            array('XL', 40),
+            array('XC', 90),
+            array('CD', 400),
+            array('CM', 900),
+            array('XIV', 14),
         );
     }
 
