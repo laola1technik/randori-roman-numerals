@@ -72,17 +72,14 @@ class RomanNumerals
         foreach (str_split($romanNumber) as $literal) {
             $arabicNumber[] = array_search($literal, $this->numberToLiteral);
         }
-        for ($i = 0; $i < count($arabicNumber); $i++) {
-            if (array_key_exists($i + 1, $arabicNumber)) {
-                if ($arabicNumber[$i] < $arabicNumber[$i + 1]) {
-                    $arabicNumber[$i] *= -1;
-                }
+
+        for ($i = 0; $i < count($arabicNumber) - 1; $i++) {
+            if ($arabicNumber[$i] < $arabicNumber[$i + 1]) {
+                $arabicNumber[$i] *= -1;
             }
         }
 
         return array_sum($arabicNumber);
-
-
     }
 
 }
