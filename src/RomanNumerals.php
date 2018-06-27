@@ -68,7 +68,7 @@ class RomanNumerals
 
     public function convertFromRoman($romanNumber)
     {
-        return 1;
+        return array_search($romanNumber, $this->numberToLiteral);
     }
 
 }

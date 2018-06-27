@@ -76,7 +76,8 @@ class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
     public function provide_roman_to_arabic_mapping()
     {
         return array(
-            array('I', 1)
+            array('I', 1),
+            array('V', 5)
         );
     }
 
