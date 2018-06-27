@@ -47,16 +47,18 @@ class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
             // subtraktive Sequenzen
             array(4, 'IV'),
             array(9, 'IX'),
-            array(14, 'XIV'),
             array(40, 'XL'),
             array(90, 'XC'),
             array(400, 'CD'),
             array(900, 'CM'),
+            // Sequenzen mit additiven und subtraktiven
+            array(14, 'XIV'),
+            array(19, 'XIX'),
             array(91, 'XCI'),
             array(41, 'XLI'),
             array(999, 'CMXCIX'),
-            array(444, 'CDXLIV')
-
+            array(444, 'CDXLIV'),
+            array(3999, 'MMMCMXCIX')
         );
     }
 } // TODO: Test 0
