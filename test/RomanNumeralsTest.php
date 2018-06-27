@@ -77,7 +77,12 @@ class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
     {
         return array(
             array('I', 1),
-            array('V', 5)
+            array('V', 5),
+            array('X', 10),
+            array('L', 50),
+            array('C', 100),
+            array('D', 500),
+            array('M', 1000)
         );
     }
 
