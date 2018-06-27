@@ -69,10 +69,15 @@ class RomanNumerals
     public function convertFromRoman($romanNumber)
     {
         $arabicNumber = 0;
-        foreach (str_split($romanNumber) as $literal) {
+        while ($romanNumber !== '') {
+            $literal = substr($romanNumber, 0, 1);
+            $romanNumber = substr($romanNumber, 1);
+
             $arabicNumber += array_search($literal, $this->numberToLiteral);
         }
+
         return $arabicNumber;
+
     }
 
 }

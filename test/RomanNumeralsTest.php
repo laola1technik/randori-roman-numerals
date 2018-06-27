@@ -86,6 +86,8 @@ class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
             // Sequenzen von Literalen
             array('II', 2),
             array('MMMDCCCLXXXVIII', 3888),
+            // Subtraktive Formen
+            // array('IV', 4)
         );
     }
 
