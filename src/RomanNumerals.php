@@ -35,18 +35,23 @@ class RomanNumerals
         }
 
         foreach ($this->powersAllowingSubstractiveForm as $power) {
-            if ($numberToConvert >= 4 * $power && $numberToConvert < 5 * $power) {
-                $remainingNumber = $numberToConvert - 4 * $power;
-                return $this->getLiteralFor($power) .
-                    $this->getLiteralFor(4 * $power + $power) .
-                    $this->convert($remainingNumber);
+            foreach ([4,9] as $foo) {
+                $lowerBoundary = $foo * $power;
+                $upperBoundary = ($foo + 1) * $power;
+                if ($numberToConvert >= $lowerBoundary && $numberToConvert < $upperBoundary) {
+                    $remainingNumber = $numberToConvert - $lowerBoundary;
+                    return $this->getLiteralFor($power) .
+                        $this->getLiteralFor($lowerBoundary + $power) .
+                        $this->convert($remainingNumber);
+                }
             }
-            if ($numberToConvert >= 9 * $power && $numberToConvert < 10 * $power) {
+
+/*            if ($numberToConvert >= 9 * $power && $numberToConvert < 10 * $power) {
                 $remainingNumber = $numberToConvert - 9 * $power;
                 return $this->getLiteralFor($power) .
                     $this->getLiteralFor(9 * $power + $power) .
                     $this->convert($remainingNumber);
-            }
+            }*/
             // Todo: Refactor dupclicated code
         }
 
