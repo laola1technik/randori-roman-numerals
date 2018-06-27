@@ -17,6 +17,17 @@ class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($romanNumber, $romanNumerals->convertFromArabic($arabicNumber));
     }
 
+    /**
+     * @test
+     * @dataProvider provide_arabic_to_roman_mapping
+     */
+    public function should_return_arabic_for_roman_number($arabicNumber, $romanNumber)
+    {
+        $romanNumerals = new RomanNumerals();
+
+        $this->assertEquals($arabicNumber, $romanNumerals->convertFromRoman($romanNumber));
+    }
+
     public function provide_arabic_to_roman_mapping()
     {
         return array(
@@ -61,40 +72,4 @@ class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
             array(3999, 'MMMCMXCIX')
         );
     }
-
-    /**
-     * @test
-     * @dataProvider provide_roman_to_arabic_mapping
-     */
-    public function should_return_arabic_for_roman_number($romanNumber, $arabicNumber)
-    {
-        $romanNumerals = new RomanNumerals();
-
-        $this->assertEquals($arabicNumber, $romanNumerals->convertFromRoman($romanNumber));
-    }
-
-    public function provide_roman_to_arabic_mapping()
-    {
-        return array(
-            array('I', 1),
-            array('V', 5),
-            array('X', 10),
-            array('L', 50),
-            array('C', 100),
-            array('D', 500),
-            array('M', 1000),
-            // Sequenzen von Literalen
-            array('II', 2),
-            array('MMMDCCCLXXXVIII', 3888),
-            // Subtraktive Formen
-            array('IV', 4),
-            array('IX', 9),
-            array('XL', 40),
-            array('XC', 90),
-            array('CD', 400),
-            array('CM', 900),
-            array('XIV', 14),
-        );
-    }
-
-} // TODO: Test 0
+}
