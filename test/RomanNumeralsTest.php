@@ -14,7 +14,7 @@ class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
     {
         $romanNumerals = new RomanNumerals();
 
-        $this->assertEquals($romanNumber, $romanNumerals->convert($arabicNumber));
+        $this->assertEquals($romanNumber, $romanNumerals->convertFromArabic($arabicNumber));
     }
 
     public function provide_arabic_to_roman_mapping()
@@ -61,4 +61,23 @@ class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
             array(3999, 'MMMCMXCIX')
         );
     }
+
+    /**
+     * @test
+     * @dataProvider provide_roman_to_arabic_mapping
+     */
+    public function should_return_arabic_for_roman_number($romanNumber, $arabicNumber)
+    {
+        $romanNumerals = new RomanNumerals();
+
+        $this->assertEquals($arabicNumber, $romanNumerals->convertFromRoman($romanNumber));
+    }
+
+    public function provide_roman_to_arabic_mapping()
+    {
+        return array(
+            array('I', 1)
+        );
+    }
+
 } // TODO: Test 0

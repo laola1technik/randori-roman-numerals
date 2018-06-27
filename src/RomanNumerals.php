@@ -30,7 +30,7 @@ class RomanNumerals
         $this->powersAllowingSubstractiveForm = [1, 10, 100];
     }
 
-    public function convert($numberToConvert)
+    public function convertFromArabic($numberToConvert)
     {
         if ($numberToConvert === 0) {
             return '';
@@ -44,7 +44,7 @@ class RomanNumerals
                     $remainingNumber = $numberToConvert - $lowerBoundary;
                     return $this->getLiteralFor($power) .
                         $this->getLiteralFor($lowerBoundary + $power) .
-                        $this->convert($remainingNumber);
+                        $this->convertFromArabic($remainingNumber);
                 }
             }
         }
@@ -52,7 +52,7 @@ class RomanNumerals
         foreach ($this->equivalentNumbers as $equivalentNumber) {
             if ($numberToConvert >= $equivalentNumber) {
                 $remainingNumber = $numberToConvert - $equivalentNumber;
-                return $this->getLiteralFor($equivalentNumber) . $this->convert($remainingNumber);
+                return $this->getLiteralFor($equivalentNumber) . $this->convertFromArabic($remainingNumber);
             }
         }
         throw new \InvalidArgumentException($numberToConvert);
@@ -64,6 +64,11 @@ class RomanNumerals
             return $this->numberToLiteral[$number];
         }
         throw new \InvalidArgumentException($number);
+    }
+
+    public function convertFromRoman($romanNumber)
+    {
+        return 1;
     }
 
 }
